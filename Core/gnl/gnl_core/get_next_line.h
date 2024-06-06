@@ -14,18 +14,15 @@
 # include <unistd.h>
 # include <fcntl.h>
 
-typedef struct s_list
-{
-	char			*str_buf;
-	struct s_list	*next;
-}	t_list;
-
 char	*get_next_line(int fd);
 
-char	*ft_strdup(char *s);
-size_t	ft_strlen(char *s);
-char	*ft_substr(char *s, unsigned int start, size_t len);
-char	*ft_strjoin(char *s1, char *s2);
-void	fill_str(char *res, char *s1, char *s2);
+static char	*move_behind_line (char *line_buffer);
+size_t		ft_strlen(const char *s);
+char		*ft_substr(char *s, unsigned int start, size_t len);
+int			ft_strchr(const char *s, int c);
+char		*fill_the_line (int fd, char *left_line, char *buffer);
+char		*ft_strdup(const char *s);
+char		*ft_strjoin(char const *s1, char const *s2);
+// void	fill_str(char *res, char *s1, char *s2);
 
 #endif
