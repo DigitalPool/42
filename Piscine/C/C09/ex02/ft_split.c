@@ -5,112 +5,90 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 18:07:52 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/03/20 18:12:25 by ashobajo         ###   ########.fr       */
+/*   Created: 2024/05/23 09:01:44 by ashobajo          #+#    #+#             */
+/*   Updated: 2024/05/24 20:06:06 by ashobajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
-int	is_separator(char c, char *charset)
+static size_t	count_words(char const *s, char c)
 {
-	while (*charset)
+	size_t	count;
+	size_t	i;
+
+	count = 0;
+	i = 0;
+	while (*(s + i))
 	{
-		if (c == *charset)
-			return 1;
-		charset++;
+		if (*(s + i) != c)
+		{
+			count++;
+			while (*(s + i) && *(s + i) != c)
+				i++;
+		}
+		else if (*(s + i) == c)
+			i++;
 	}
-	return 0;
+	return (count);
 }
 
-int	count_words(char *str, char *charset)
+static size_t	get_word_len(char const *s, char c)
 {
-	int count = 0;
-	int in_word = 0;
+	size_t	i;
 
-	while (*str)
-	{
-		if (!is_separator(*str, charset))
-		{
-			if (!in_word)
-			{
-				in_word = 1;
-				count++;
-			}
-		}
-		else
-		{
-			in_word = 0;
-		}
-		str++;
-	}
-	return count;
+	i = 0;
+	while (*(s + i) && *(s + i) != c)
+		i++;
+	return (i);
 }
 
-char	*copy_word(char *str, char *charset)
+static void	free_array(size_t i, char **array)
 {
-	char *start = str;
-	while (*str && !is_separator(*str, charset))
+	while (i > 0)
 	{
-		str++;
+		i--;
+		free(*(array + i));
 	}
-	int len = str - start;
-	char *word = (char *)malloc((len + 1) * sizeof(char));
-	for (int i = 0; i < len; i++)
-	{
-		word[i] = start[i];
-	}
-	word[len] = '\0';
-	return word;
+	free(array);
 }
 
-char	**ft_split(char *str, char *charset)
+static char	**split(char const *s, char c, char **array, size_t words_count)
 {
-	int word_count = count_words(str, charset);
-	char **result = (char **)malloc((word_count + 1) * sizeof(char *));
-	if (!result)
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	while (i < words_count)
 	{
-		return NULL;
-	}
-	int i = 0;
-	while (*str)
-	{
-		if (!is_separator(*str, charset))
+		while (*(s + j) && *(s + j) == c)
+			j++;
+		*(array + i) = ft_substr(s, j, get_word_len(&*(s + j), c));
+		if (!*(array + i))
 		{
-			result[i++] = copy_word(str, charset);
-			while (*str && !is_separator(*str, charset))
-			{
-				str++;
-			}
+			free_array(i, array);
+			return (NULL);
 		}
-		else
-		{
-			str++;
-		}
+		while (*(s + j) && *(s + j) != c)
+			j++;
+		i++;
 	}
-	result[word_count] = 0;
-	return result;
+	*(array + i) = NULL;
+	return (array);
 }
 
-// Main function
-int	main(void)
+char	**ft_split(char const *s, char c)
 {
-	char str[] = "This,is,a,test,string";
-	char charset[] = ",";
-	char **result = ft_split(str, charset);
+	char	**array;
+	size_t	words;
 
-	printf("Split string:\n");
-	for (int i = 0; result[i] != NULL; i++)
-	{
-		printf("%s\n", result[i]);
-	}
-
-	for (int i = 0; result[i] != NULL; i++)
-	{
-		free(result[i]);
-	}
-	free(result);
-
-	return 0;
+	if (!s)
+		return (NULL);
+	words = count_words(s, c);
+	array = (char **)malloc(sizeof(char *) * (words + 1));
+	if (!array)
+		return (NULL);
+	array = split(s, c, array, words);
+	return (array);
 }
