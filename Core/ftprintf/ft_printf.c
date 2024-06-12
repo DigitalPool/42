@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/06 10:02:33 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/06/06 10:28:30 by ashobajo         ###   ########.fr       */
+/*   Created: 2024/06/11 15:23:37 by ashobajo          #+#    #+#             */
+/*   Updated: 2024/06/11 18:35:33 by ashobajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# ifndef BUFFER_SIZE
-# define BUFFER_SIZE 100
-# endif
-# include <stdlib.h>
-# include <unistd.h>
-# include <fcntl.h>
+int	ft_printf(const char *format, ...)
+{
+	va_list	ap;
+	int		count;
 
-char	*get_next_line(int fd);
-char	*ft_strdup(char *s);
-size_t	ft_strlen(char *s);
-char	*ft_substr(char *s, unsigned int start, size_t len);
-char	*ft_strjoin(char *s1, char *s2);
-void    fill_str(char *res, char *s1, char *s2);
-
-#endif
+	count = 0;
+	va_start (ap, format);
+	while (*(format) != '\0')
+	{
+		if (*format == '%' && *(format + 1) == '%')
+			count += write (1, format++, 1);
+		else if (*format == '%')
+			count += print_format (*(++format), ap);
+		else
+			count += write (1, format, 1);
+		format++;
+	}
+	va_end (ap);
+	return (count);
+}
