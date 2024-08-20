@@ -6,7 +6,7 @@
 /*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 20:45:44 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/19 20:57:24 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/20 17:12:06 by ashobajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_stack	*ft_parse_args_quoted(char **argv)
 
 	stack_a = NULL;
 	// i = 0;
-	tmp = ft_split(argv[1], 32);
+	tmp = ft_split_string(argv[1], 32);
 	ft_add_args_to_stack(tmp, &stack_a);
 	ft_freestr(tmp);
 	free(tmp);

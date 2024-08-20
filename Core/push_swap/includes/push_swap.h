@@ -6,7 +6,7 @@
 /*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 18:19:12 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/19 20:46:15 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/20 18:17:38 by ashobajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_stack
 		struct s_stack	*prev;
 }		t_stack;
 
+void print_stack(t_stack *stack);
 t_stack *ft_lst_last(t_stack *lst);
 int ft_lst_size(t_stack *lst);
 void	ft_free_stack(t_stack **stack);
@@ -63,5 +64,6 @@ int	ft_atoi_stack(const char *str);
 t_stack	*ft_sub_process(char **argv);
 t_stack	*ft_get_stack(int argc, char **argv);
 void	ft_freestr(char **lst);
+char	**ft_split_string(char const *s, char c);
 
 #endif

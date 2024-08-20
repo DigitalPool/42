@@ -6,32 +6,33 @@
 #    By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/19 18:34:58 by ashobajo          #+#    #+#              #
-#    Updated: 2024/08/19 20:53:13 by ashobajo         ###   ########.fr        #
+#    Updated: 2024/08/20 17:51:00 by ashobajo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-CC = gcc
+CC = cc
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fPIC
 
-SRCS =	push_swap/ft_add_args_to_stack.c \
-			push_swap/ft_check_args.c \
-			push_swap/ft_check_duplicate.c \
-			push_swap/ft_check_if_sorted.c \
-			push_swap/ft_create_new_node.c \
-			push_swap/ft_free_stack.c \
-			push_swap/ft_get_lst_size.c \
-			push_swap/ft_get_stack.c\
-			push_swap/ft_print_error.c \
-			push_swap/ft_sort_stack.c \
-			push_swap/ft_stack_utils.c \
-			push_swap/ft_parse_args_quoted\
-			push_swap/push_operations.c \
-			push_swap/push_swap.c \
-			push_swap/rev_rotate_operations.c \
-			push_swap/rotate_operations.c \
-			push_swap/swap_operations.c\
+SRCS =	sources/ft_add_args_to_stack.c \
+			sources/ft_check_args.c \
+			sources/ft_check_duplicate.c \
+			sources/ft_check_if_sorted.c \
+			sources/ft_create_new_node.c \
+			sources/ft_free_stack.c \
+			sources/ft_get_lst_size.c \
+			sources/ft_get_stack.c\
+			sources/ft_print_error.c \
+			sources/ft_sort_stack.c \
+			sources/ft_stack_utils.c \
+			sources/ft_parse_args_quoted.c\
+			sources/push_operations.c \
+			sources/ft_split_string.c\
+			sources/push_swap.c \
+			sources/rev_rotate_operations.c \
+			sources/rotate_operations.c \
+			sources/swap_operations.c\
 
 LIBFT = libft/libft.a
 

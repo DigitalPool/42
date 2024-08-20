@@ -1,44 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_add_args_to_stack.c                             :+:      :+:    :+:   */
+/*   ft_check_if_sorted.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/16 16:53:41 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/19 19:12:59 by ashobajo         ###   ########.fr       */
+/*   Created: 2024/08/17 13:52:43 by ashobajo          #+#    #+#             */
+/*   Updated: 2024/08/20 19:01:15 by ashobajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	add_from_back(t_stack **stack, t_stack *stack_new)
+int	is_sorted(t_stack **stack)
 {
-	t_stack *last;
+	t_stack *tmp;
 
-	last = ft_lst_last(*stack);
-	if (!stack || !stack_new)
-		return;
-
-	if (*stack == NULL)
+	tmp = *stack;
+	while (tmp->next)
 	{
-		*stack = stack_new;
+		if (tmp->nbr > tmp->next->nbr)
+			return (0);
+		tmp = tmp->next;
 	}
-	else
-	{
-		if (last)
-			last->next = stack_new;
-	}
-}
 
-void ft_add_args_to_stack(char **argv, t_stack **stack_a)
-{
-	long	i;
-
-	i = 1;
-	while (argv[i] != NULL)
-	{
-		add_from_back (stack_a, ft_create_new_node(ft_atoi(argv[i])));
-		i++;
-	}
+	printf("after is_sorted:\n");
+	print_stack(*stack);
+	return (1);
 }
