@@ -6,7 +6,7 @@
 /*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 18:35:44 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/17 13:52:59 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/19 18:30:34 by ashobajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,16 @@ void	check_alpha_sym(char **argv)
 	}
 }
 
-int	ft_check_args(char **argv)
+int	ft_Min_Max(int c)
 {
-	check_alpha_sym(argv);
-	if (!check_error(argv, 1, 0))
-		return (false);
-	return (true);
+	if ((c > INT_MAX) || (c < INT_MIN))
+		return (1);
+	return (0);
 }
+// int	ft_check_args(char **argv)
+// {
+// 	check_alpha_sym(argv);
+// 	if (!check_error(argv, 1, 0))
+// 		return (false);
+// 	return (true);
+// }

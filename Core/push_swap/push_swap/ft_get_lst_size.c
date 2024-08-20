@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_if_sorted.c                               :+:      :+:    :+:   */
+/*   ft_get_lst_size.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/17 13:52:43 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/19 20:18:27 by ashobajo         ###   ########.fr       */
+/*   Created: 2024/08/19 16:32:11 by ashobajo          #+#    #+#             */
+/*   Updated: 2024/08/19 19:42:14 by ashobajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	is_sorted(t_stack **stack)
+int ft_get_lst_size(t_stack *stack)
 {
-	while((*stack)->next)
+	int	i;
+
+	i	= 0;
+
+	if (!stack)
+		return (0);
+
+	while (stack)
 	{
-		if ((*stack)->nbr > (*stack)->next->nbr)
-			return (0);
-		(*stack) = (*stack)->next;
+		while (stack->next != NULL)
+		{
+			i++;
+		}
+		stack = stack->next;
 	}
-	return (1);
+
+	return (i);
+
 }

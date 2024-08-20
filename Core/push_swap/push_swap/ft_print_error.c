@@ -6,7 +6,7 @@
 /*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 18:29:16 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/16 16:11:38 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/19 19:42:23 by ashobajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 void	ft_print_error(void)
 {
 	write (1, "Error\n", 6);
-	exit(1)
+	exit(1);
 }
 
