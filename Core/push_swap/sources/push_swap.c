@@ -6,7 +6,7 @@
 /*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 16:51:42 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/20 18:20:40 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/20 19:14:06 by ashobajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,17 @@ int	main(int argc, char **argv)
 		return (1);  // Exit with error code
 	}
 
-	// Print the stack before sorting
-	printf("Stack before sorting:\n");
-	print_stack(stack_a);
+	// // Print the stack before sorting
+	// printf("Stack before sorting:\n");
+	// print_stack(stack_a);
 
 	// Sort the stack if it's not already sorted
 	if (!is_sorted(&stack_a))
 		ft_sort_stack(&stack_a);
 
-	// Print the stack after sorting
-	printf("Stack after sorting:\n");
-	print_stack(stack_a);
+	// // Print the stack after sorting
+	// printf("Stack after sorting:\n");
+	// print_stack(stack_a);
 
 	// Free the stack memory
 	ft_free_stack(&stack_a);

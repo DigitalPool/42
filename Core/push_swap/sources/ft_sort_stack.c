@@ -6,7 +6,7 @@
 /*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:46:40 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/20 18:59:47 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/20 19:13:12 by ashobajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	ft_sort_stack(t_stack **stack_a)
 	else
 		ft_sort(stack_a, &stack_b);
 
-	printf("after ft_sort_stack:\n");
-	print_stack(*stack_a);
+	// printf("after ft_sort_stack:\n");
+	// print_stack(*stack_a);
 }
 
 void ft_sort(t_stack **stack_a, t_stack **stack_b)
@@ -45,8 +45,8 @@ void ft_sort(t_stack **stack_a, t_stack **stack_b)
 	while (*stack_b)
 		ft_pa(stack_a, stack_b, 0);
 
-	printf("after ft_sort:\n");
-	print_stack(*stack_a);
+	// printf("after ft_sort:\n");
+	// print_stack(*stack_a);
 }
 
 void ft_sort_three(t_stack **stack_a)
@@ -76,7 +76,7 @@ void ft_sort_three(t_stack **stack_a)
 			ft_rra(stack_a, 0);
 	}
 
-	printf("after ft_sort_three:\n");
-	print_stack(*stack_a);
+	// printf("after ft_sort_three:\n");
+	// print_stack(*stack_a);
 }
 
