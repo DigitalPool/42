@@ -6,7 +6,7 @@
 /*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 18:19:12 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/20 18:17:38 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/21 19:13:41 by ashobajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,9 @@ t_stack	*ft_sub_process(char **argv);
 t_stack	*ft_get_stack(int argc, char **argv);
 void	ft_freestr(char **lst);
 char	**ft_split_string(char const *s, char c);
+void ft_sort_five(t_stack **stack_a);
+int ft_second_min(t_stack *stack_a);
+void ft_sort_four(t_stack **stack_a);
+int ft_stack_mean(t_stack **stack);
 
 #endif

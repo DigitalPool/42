@@ -6,7 +6,7 @@
 /*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 13:52:43 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/20 19:01:15 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/21 16:14:54 by ashobajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	is_sorted(t_stack **stack)
 		tmp = tmp->next;
 	}
 
-	printf("after is_sorted:\n");
+	// printf("after is_sorted:\n");
 	print_stack(*stack);
 	return (1);
 }

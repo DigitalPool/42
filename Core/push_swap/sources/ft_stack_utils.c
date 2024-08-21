@@ -6,7 +6,7 @@
 /*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 18:00:34 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/19 20:25:02 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/21 17:48:24 by ashobajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,28 @@ int ft_lst_size(t_stack *lst)
 		i++;
 	}
 	return (i);
+}
+int ft_second_min(t_stack *stack_a)
+{
+	int min;
+	int second_min;
+
+	if (!stack_a || !stack_a->next)
+		return (0);
+
+	min = ft_min(stack_a);
+	second_min = INT_MAX;
+	while (stack_a)
+	{
+		if (stack_a->nbr > min && stack_a->nbr < second_min)
+			second_min = stack_a->nbr;
+		stack_a = stack_a->next;
+	}
+
+	printf("second min:\n");
+	printf ("%d\n", second_min);
+
+	return (second_min);
+
+
 }
