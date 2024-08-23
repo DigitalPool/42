@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_new_node.c                               :+:      :+:    :+:   */
+/*   ft_move_counts.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/16 16:44:19 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/23 21:40:43 by ashobajo         ###   ########.fr       */
+/*   Created: 2024/08/23 20:37:30 by ashobajo          #+#    #+#             */
+/*   Updated: 2024/08/23 20:43:24 by ashobajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
-
-t_stack *ft_create_new_node(int value)
+int move_count_ra (t_stack **stack_a)
 {
-	t_stack *new_node;
+	int move_count = 0;
 
-	new_node = malloc(sizeof(t_stack));
-	if (!new_node)
-		ft_print_error();
-	new_node->nbr = value;
-	new_node->pos = 0;
-	new_node->next = NULL;
-	new_node->prev = NULL;
-
-	return (new_node);
+	if ((*stack_a))
+		move_count = 0;
+	else if (ft_lst_last(stack_a))
+		move_count = 1;
 }

@@ -6,116 +6,127 @@
 /*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:37:07 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/23 16:37:12 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/23 21:41:30 by ashobajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// This function sort and push stacks until 3 members left behind.
-void	ft_sort_b_till_3(t_stack **stack_a, t_stack **stack_b)
-{
-	int		i;
-	t_stack	*tmp;
+//Here we chech which number of the quatile is close to the top or the bottom
+//then we push. After pushing all to stack_b, the top quartile of stack_b would
+//would be filled with the highest numbers down the stack. we would then start
+//pushing the big numbers into stack_a quartile by quartile, and then sorting them
+//but also noting the move counts to see the cheapest moves.
 
-	while (ft_lstsize(*stack_a) > 3 && !ft_checksorted(*stack_a))
-	{
-		tmp = *stack_a;
-		i = ft_rotate_type_ab(*stack_a, *stack_b);
-		while (i >= 0)
-		{
-			if (i == ft_case_rarb(*stack_a, *stack_b, tmp->nbr))
-				i = ft_apply_rarb(stack_a, stack_b, tmp->nbr, 'a');
-			else if (i == ft_case_rrarrb(*stack_a, *stack_b, tmp->nbr))
-				i = ft_apply_rrarrb(stack_a, stack_b, tmp->nbr, 'a');
-			else if (i == ft_case_rarrb(*stack_a, *stack_b, tmp->nbr))
-				i = ft_apply_rarrb(stack_a, stack_b, tmp->nbr, 'a');
-			else if (i == ft_case_rrarb(*stack_a, *stack_b, tmp->nbr))
-				i = ft_apply_rrarb(stack_a, stack_b, tmp->nbr, 'a');
-			else
-				tmp = tmp->next;
-		}
-	}
-}
-
-// This function one by one pushes all the elements
-// in stack_a to the stack_b, until only three elements
-// are left in stack_a. While pushing, it makes sure if
-// the stack_b is sorted. When three elements are left,
-// it calls the ft_sort_three function to sort left over
-// elements in stack_a.
-t_stack	*ft_sort_b(t_stack **stack_a)
-{
-	t_stack	*stack_b;
-
-	stack_b = NULL;
-	if (ft_lstsize(*stack_a) > 3 && !ft_checksorted(*stack_a))
-		ft_pb(stack_a, &stack_b, 0);
-	if (ft_lstsize(*stack_a) > 3 && !ft_checksorted(*stack_a))
-		ft_pb(stack_a, &stack_b, 0);
-	if (ft_lstsize(*stack_a) > 3 && !ft_checksorted(*stack_a))
-		ft_sort_b_till_3(stack_a, &stack_b);
-	if (!ft_checksorted(*stack_a))
-		ft_sort_three(stack_a);
-	return (stack_b);
-}
-
-// This function is pushing back the elements from stack_b
-// to stack_a until stack_b is empty.
-t_stack	**ft_sort_a(t_stack **stack_a, t_stack **stack_b)
-{
-	int		i;
-	t_stack	*tmp;
-
-	while (*stack_b)
-	{
-		tmp = *stack_b;
-		i = ft_rotate_type_ba(*stack_a, *stack_b);
-		while (i >= 0)
-		{
-			if (i == ft_case_rarb_a(*stack_a, *stack_b, tmp->nbr))
-				i = ft_apply_rarb(stack_a, stack_b, tmp->nbr, 'b');
-			else if (i == ft_case_rarrb_a(*stack_a, *stack_b, tmp->nbr))
-				i = ft_apply_rarrb(stack_a, stack_b, tmp->nbr, 'b');
-			else if (i == ft_case_rrarrb_a(*stack_a, *stack_b, tmp->nbr))
-				i = ft_apply_rrarrb(stack_a, stack_b, tmp->nbr, 'b');
-			else if (i == ft_case_rrarb_a(*stack_a, *stack_b, tmp->nbr))
-				i = ft_apply_rrarb(stack_a, stack_b, tmp->nbr, 'b');
-			else
-				tmp = tmp->next;
-		}
-	}
-	return (stack_a);
-}
-
-// This function sorts the stack_a if there are more
-// than 2 elements in the stack_a.
-// And finally it makes final sort in stack_a after
-// all values pushed to stack_b, sorted and pushed
-// back to stack_a. Because, even the stack_a is
-// sorted at the end, the minimum number have to
-// at the top of the stack_a. So, it simply brings
-// the smallest number of the stack_a to the top.
 void	ft_sort(t_stack **stack_a)
 {
 	t_stack	*stack_b;
-	int		i;
+	stack_mean = stack_mean(stack_a);
+	mean1_stack = mean1_stack (stack_a);
+	mean3_stack = mean3_stack (stack_a);
+	stack_max = ft_max((*stack_a));
+
+
 
 	stack_b = NULL;
-	if (ft_lstsize(*stack_a) == 2)
+	if (ft_lst_size(*stack_a) == 2)
 		ft_sa(stack_a, 0);
 	else
 	{
-		stack_b = ft_sort_b(stack_a);
-		stack_a = ft_sort_a(stack_a, &stack_b);
-		i = ft_find_index(*stack_a, ft_min(*stack_a));
-		if (i < ft_lstsize(*stack_a) - i)
+		while ((*stack_a) && !is_sorted(stack_a))
 		{
-			while ((*stack_a)->nbr != ft_min(*stack_a))
-				ft_ra(stack_a, 0);
+			if ((*stack_a)->nbr <= mean1_stack)
+				ft_pb(stack_a, &stack_b, 0);
+			else if ((ft_lst_last(*stack))->nbr <= mean1_stack)
+				{
+					ft_rra(stack_a, 0);
+					ft_pb(stack_a, &stack_b, 0);
+				}
+			else if (move_count_ra(find_next_memmean1_top((*stack_a))) < (move_count_rra (find_next_memmean1_bottom((*stack_a)))))
+			{
+				while (find_next_memmean1_top((*stack_a)) != stack_a->nbr)
+					ft_ra(stack_a, 0);
+			}
+			else if ((move_count_rra (find_next_memmean1_bottom((*stack_a)))) < move_count_ra(find_next_memmean1_top((*stack_a))) )
+			{
+				while (find_next_memmean1_bottom((*stack_a)) != stack_a->nbr)
+					ft_rra(stack_a, 0);
+			}
+
+			ft_pb(stack_a, &stack_b, 0);
 		}
-		else
+
+		while ((*stack_a) && !is_sorted(stack_a))
 		{
-			while ((*stack_a)->nbr != ft_min(*stack_a))
-				ft_rra(stack_a, 0);
+			if ((*stack_a)->nbr <= stack_mean)
+				ft_pb(stack_a, &stack_b, 0);
+			else if ((ft_lst_last(*stack))->nbr <= stack_mean)
+				{
+					ft_rra(stack_a, 0);
+					ft_pb(stack_a, &stack_b, 0);
+				}
+			else if (move_count_ra(find_next_memmean1_top((*stack_a))) < (move_count_rra (find_next_memmean1_bottom((*stack_a)))))
+			{
+				while (find_next_memmean1_top((*stack_a)) != stack_a->nbr)
+					ft_ra(stack_a, 0);
+			}
+			else if ((move_count_rra (find_next_memmean1_bottom((*stack_a)))) < move_count_ra(find_next_memmean1_top((*stack_a))) )
+			{
+				while (find_next_memmean1_bottom((*stack_a)) != stack_a->nbr)
+					ft_rra(stack_a, 0);
+			}
+
+			ft_pb(stack_a, &stack_b, 0);
 		}
+
+		while ((*stack_a) && !is_sorted(stack_a))
+		{
+			if ((*stack_a)->nbr <= mean3_stack)
+				ft_pb(stack_a, &stack_b, 0);
+			else if ((ft_lst_last(*stack))->nbr <= mean3_stack)
+				{
+					ft_rra(stack_a, 0);
+					ft_pb(stack_a, &stack_b, 0);
+				}
+			else if (move_count_ra(find_next_memmean1_top((*stack_a))) < (move_count_rra (find_next_memmean1_bottom((*stack_a)))))
+			{
+				while (find_next_memmean1_top((*stack_a)) != stack_a->nbr)
+					ft_ra(stack_a, 0);
+			}
+			else if ((move_count_rra (find_next_memmean1_bottom((*stack_a)))) < move_count_ra(find_next_memmean1_top((*stack_a))) )
+			{
+				while (find_next_memmean1_bottom((*stack_a)) != stack_a->nbr)
+					ft_rra(stack_a, 0);
+			}
+
+			ft_pb(stack_a, &stack_b, 0);
+		}
+
+		while ((*stack_a) && !is_sorted(stack_a))
+		{
+			if ((*stack_a)->nbr <= stack_max)
+				ft_pb(stack_a, &stack_b, 0);
+			else if ((ft_lst_last(*stack))->nbr <= stack_max)
+				{
+					ft_rra(stack_a, 0);
+					ft_pb(stack_a, &stack_b, 0);
+				}
+			else if (move_count_ra(find_next_memmean1_top((*stack_a))) < (move_count_rra (find_next_memmean1_bottom((*stack_a)))))
+			{
+				while (find_next_memmean1_top((*stack_a)) != stack_a->nbr)
+					ft_ra(stack_a, 0);
+			}
+			else if ((move_count_rra (find_next_memmean1_bottom((*stack_a)))) < move_count_ra(find_next_memmean1_top((*stack_a))) )
+			{
+				while (find_next_memmean1_bottom((*stack_a)) != stack_a->nbr)
+					ft_rra(stack_a, 0);
+			}
+
+			ft_pb(stack_a, &stack_b, 0);
+		}
+	}
+
+	while (stack_b)
+	{
+		if ((*stack_b)->nbr)
+
 	}
 }
