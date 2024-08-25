@@ -6,7 +6,7 @@
 /*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:46:40 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/25 14:00:35 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/25 18:36:35 by ashobajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	ft_sort_stack(t_stack **stack_a)
 {
+	if (!stack_a)
+		ft_print_error();
+
 	if (ft_lst_size(*stack_a) == 2)
 		ft_sa(stack_a, 0);
 	else if (ft_lst_size(*stack_a) == 3)

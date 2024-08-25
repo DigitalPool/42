@@ -6,7 +6,7 @@
 /*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:32:11 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/19 19:42:14 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/25 19:10:13 by ashobajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,10 @@ int ft_get_lst_size(t_stack *stack)
 	if (!stack)
 		return (0);
 
+	// Simply iterate through the list and increment i for each node
 	while (stack)
 	{
-		while (stack->next != NULL)
-		{
-			i++;
-		}
+		i++;
 		stack = stack->next;
 	}
 

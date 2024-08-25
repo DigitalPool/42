@@ -6,7 +6,7 @@
 /*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 20:37:30 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/25 14:14:31 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/25 21:13:27 by ashobajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ int find_next_min_bottom(t_stack **stack)
 
 int move_count_ra_stack(t_stack **stack)
 {
-	t_stack *(*current) = stack;
+	t_stack **current = stack;
 	int count = 0;
 
 	while ((*current) && (*current)->next)
@@ -150,13 +150,13 @@ int move_count_rra_stack(t_stack **stack)
 	int count = 0;
 
 	// Move to the last element
-	while ((*current) && (*current)->next)
+	while (*current && (*current)->next)
 	{
 		(*current) = (*current)->next;
 	}
 
 	// Traverse backwards, counting until we reach the sorted condition
-	while ((*current) && (*current)->prev)
+	while (current && (*current)->prev)
 	{
 		if ((*current)->nbr < (*current)->prev->nbr)
 			return count + 1; // The number of reverse rotations needed to bring the largest element to the top
@@ -166,3 +166,4 @@ int move_count_rra_stack(t_stack **stack)
 
 	return 0; // Stack is already sorted or only one element
 }
+

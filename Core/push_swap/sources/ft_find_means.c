@@ -6,7 +6,7 @@
 /*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 12:51:36 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/25 14:08:33 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/25 21:36:13 by ashobajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ int find_next_memmean1_top(t_stack **stack, int mean1_stack_a)
 
 	while ((*current))
 	{
-		if (((*current))->nbr <= mean1_stack_a)
+		if ((*current)->nbr <= mean1_stack_a)
 			return (*current)->nbr;
 		(*current) = (*current)->next;
 	}
-	return -1; // Return -1 if no element is found
+
+	return INT_MAX; // Return -1 if no element is found
 }
+
 
 int find_next_memmean1_bottom(t_stack **stack, int mean1_stack_a)
 {
@@ -42,7 +44,7 @@ int find_next_memmean1_bottom(t_stack **stack, int mean1_stack_a)
 			return (*current)->nbr;
 		(*current) = (*current)->prev;
 	}
-	return -1; // Return -1 if no element is found
+	return INT_MIN; // Return -1 if no element is found
 }
 
 int find_next_memmean_top(t_stack **stack, int stack_mean)
