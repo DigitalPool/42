@@ -6,7 +6,7 @@
 #    By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/19 18:34:58 by ashobajo          #+#    #+#              #
-#    Updated: 2024/08/20 17:51:00 by ashobajo         ###   ########.fr        #
+#    Updated: 2024/08/25 15:04:23 by ashobajo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,18 +20,24 @@ SRCS =	sources/ft_add_args_to_stack.c \
 			sources/ft_check_duplicate.c \
 			sources/ft_check_if_sorted.c \
 			sources/ft_create_new_node.c \
+			sources/ft_find_means.c \
 			sources/ft_free_stack.c \
 			sources/ft_get_lst_size.c \
-			sources/ft_get_stack.c\
+			sources/ft_get_stack.c \
+			sources/ft_move_counts.c \
 			sources/ft_print_error.c \
 			sources/ft_sort_stack.c \
+			sources/ft_sort.c \
+			sources/ft_stack_means.c \
 			sources/ft_stack_utils.c \
-			sources/ft_parse_args_quoted.c\
+			sources/ft_parse_args_quoted.c \
 			sources/push_operations.c \
-			sources/ft_split_string.c\
+			sources/ft_split_string.c \
 			sources/push_swap.c \
 			sources/rev_rotate_operations.c \
 			sources/rotate_operations.c \
+			sources/sorting_utils_ab.c \
+			sources/sorting_utils_ba.c \
 			sources/swap_operations.c\
 
 LIBFT = libft/libft.a

@@ -6,11 +6,13 @@
 /*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 20:04:47 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/23 20:33:09 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/25 15:17:30 by ashobajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int mean1_stack(t_stack **stack_a)
+#include "../includes/push_swap.h"
+
+int ft_mean1_stack(t_stack **stack_a)
 {
 	int mean1 = 0;
 	int sum = 0;
@@ -26,12 +28,15 @@ int mean1_stack(t_stack **stack_a)
 			(*stack_a) = (*stack_a)->next;
 		}
 
-	mean1 = sum/count;
+	if (count > 0)
+		mean1 = sum / count; // Only divide if count is greater than 0
+	else
+		mean1 = 0; // Handle the case where no elements satisfy the condition
 
-	return (mean);
+	return (mean1);
 }
 
-int mean3_stack(t_stack **stack_a)
+int ft_mean3_stack(t_stack **stack_a)
 {
 	int mean3 = 0;
 	int sum = 0;
@@ -47,7 +52,10 @@ int mean3_stack(t_stack **stack_a)
 			(*stack_a) = (*stack_a)->next;
 		}
 
-	mean3 = sum/count;
+	if (count > 0)
+		mean3 = sum / count; // Only divide if count is greater than 0
+	else
+		mean3 = 0; // Handle the case where no elements satisfy the condition
 
-	return (mean);
+	return (mean3);
 }

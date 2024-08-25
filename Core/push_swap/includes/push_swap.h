@@ -6,7 +6,7 @@
 /*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 18:19:12 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/21 19:13:41 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/25 15:00:39 by ashobajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,13 @@ typedef struct s_stack
 }		t_stack;
 
 void print_stack(t_stack *stack);
-t_stack *ft_lst_last(t_stack *lst);
 int ft_lst_size(t_stack *lst);
 void	ft_free_stack(t_stack **stack);
 int		ft_get_lst_size(t_stack *stack);
 void	ft_sort_stack(t_stack **stack_a);
 int		ft_min(t_stack *stack_a);
 int		ft_max(t_stack *stack_a);
-void	ft_sort(t_stack **stack_a, t_stack **stack_b);
+void	ft_sort(t_stack **stack_a);
 void	ft_sort_three(t_stack **stack_a);
 void	ft_print_error(void);
 t_stack	*ft_create_new_node(int value);
@@ -69,5 +68,20 @@ void ft_sort_five(t_stack **stack_a);
 int ft_second_min(t_stack *stack_a);
 void ft_sort_four(t_stack **stack_a);
 int ft_stack_mean(t_stack **stack);
-
+int move_count_ra(t_stack **stack_a, int target);
+int move_count_rra(t_stack **stack_a, int target);
+int move_count_rbpa(t_stack **stack_b, int target);
+int move_count_rrbpa(t_stack **stack_b, int target);
+int find_next_max_top(t_stack **stack);
+int find_next_min_bottom(t_stack **stack);
+int find_next_memmean1_top(t_stack **stack, int mean1_stack_a);
+int find_next_memmean1_bottom(t_stack **stack, int mean1_stack_a);
+int find_next_memmean_top(t_stack **stack, int stack_mean);
+int find_next_memmean_bottom(t_stack **stack, int stack_mean);
+int find_next_memmean3_top(t_stack **stack, int mean3_stack);
+int find_next_memmean3_bottom(t_stack **stack, int mean3_stack);
+int move_count_rra_stack(t_stack **stack);
+int move_count_ra_stack(t_stack **stack);
+int ft_mean1_stack(t_stack **stack_a);
+int ft_mean3_stack(t_stack **stack_a);
 #endif

@@ -6,7 +6,7 @@
 /*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:46:40 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/23 16:37:24 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/25 14:00:35 by ashobajo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 
 void	ft_sort_stack(t_stack **stack_a)
 {
-	t_stack	*stack_b;
-
-	stack_b = NULL;
-
 	if (ft_lst_size(*stack_a) == 2)
 		ft_sa(stack_a, 0);
 	else if (ft_lst_size(*stack_a) == 3)
@@ -27,7 +23,7 @@ void	ft_sort_stack(t_stack **stack_a)
 	else if (ft_lst_size(*stack_a) == 5)
 		ft_sort_five(stack_a);
 	else
-		ft_sort(stack_a, &stack_b);
+		ft_sort(stack_a);
 }
 
 void ft_sort_three(t_stack **stack_a)
@@ -121,49 +117,3 @@ int ft_stack_mean(t_stack **stack)
 
 	return (stack_mean);
 }
-
-
-// void ft_sort(t_stack **stack_a, t_stack **stack_b)
-// {
-// 	int stack_mean = ft_stack_mean(stack_a);
-// 	printf("stack mean is %d\n", stack_mean);
-
-// 	while(*stack_a && !(is_sorted(stack_a)) && ft_lst_size(*stack_a) > 5)
-// 	{
-// 		if (stack_b == NULL)
-// 			ft_pb(stack_a, stack_b, 0);
-// 		else if ((*stack_a)->nbr > stack_mean)
-// 			{
-// 				ft_pb(stack_a, stack_b, 0);
-// 				ft_rb(stack_b, 0);
-// 			}
-// 		else
-// 			ft_pb(stack_a, stack_b, 0);
-// 	// printf("%s\n", "stack_b is");
-// 	// print_stack(*stack_b);
-// 	}
-
-// 	if ((ft_lst_size(*stack_a) == 5) && !(is_sorted (stack_a)))
-// 		ft_sort_five(stack_a);
-// 	// while ((*stack_b))
-// 	// 	ft_pa(stack_a, stack_b, 0);
-
-// 	while (*stack_b && ft_lst_size(*stack_b) >= (ft_lst_size(*stack_b)/2))
-// 	{
-// 			if ((*stack_b)->nbr >= (ft_lst_last(*stack_a))->nbr)
-// 				{
-// 					ft_pa(stack_a, stack_b, 0);
-// 					ft_ra(stack_a, 0);
-// 				}
-// 			else if (!is_sorted (stack_a))
-// 				{
-// 					ft_pb(stack_a, stack_b, 0);
-// 					ft_sort_five(stack_a);
-// 					ft_pa(stack_a, stack_b, 0);
-// 				}
-// 	}
-// 		// ft_pa(stack_a, stack_b, 0);
-
-// 	printf("%s\n", "stack_a is");
-// 	print_stack(*stack_a);
-// }
