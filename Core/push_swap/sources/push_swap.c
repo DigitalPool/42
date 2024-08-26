@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 16:51:42 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/25 18:31:08 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/26 16:03:38 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int	main(int argc, char **argv)
 	}
 
 	// Print the stack before sorting
-	printf("Stack before sorting:\n");
-	print_stack(stack_a);
+	// printf("Stack before sorting:\n");
+	// print_stack(stack_a);
 
 	// Sort the stack if it's not already sorted
 	if (!is_sorted(&stack_a))

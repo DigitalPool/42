@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_move_counts.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 20:37:30 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/25 21:13:27 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/26 16:10:22 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,47 @@
 int move_count_ra(t_stack **stack_a, int target)
 {
 	int count = 0;
-	t_stack **current = stack_a;
+	t_stack *current = NULL;
+	t_stack *tail = NULL;
+	t_stack *tmp = *stack_a;
+	t_stack *new_node;
 
-	while ((*current) && (*current)->nbr != target)
+	// Create a deep copy of stack_a
+	while (tmp)
+	{
+		// Allocate memory for a new node
+		new_node = malloc(sizeof(t_stack));
+		if (!new_node)
+			return -1; // Handle memory allocation failure
+
+		// Copy the data from the original node
+		new_node->nbr = tmp->nbr;
+		new_node->next = NULL;
+
+		// Link the new node into the new list
+		if (!current)
+			current = new_node; // Set the head of the new list
+		else
+			tail->next = new_node; // Attach to the last node in the new list
+
+		tail = new_node; // Move the tail to the new node
+
+		tmp = tmp->next; // Move to the next node in stack_a
+	}
+
+	// Iterate through the copied stack to find the target
+	while (current && current->nbr != target)
 	{
 		count++;
-		(*current) = (*current)->next;
+		current = current->next;
+	}
+
+	// Free the copied list to prevent memory leaks
+	while (current)
+	{
+		tmp = current;
+		current = current->next;
+		free(tmp);
 	}
 
 	return count;
@@ -39,14 +74,52 @@ int move_count_ra(t_stack **stack_a, int target)
 int move_count_rra(t_stack **stack_a, int target)
 {
 	int count = 0;
-	t_stack **current = stack_a;
+	int total_elements = 0;
+	t_stack *current = NULL;
+	t_stack *tail = NULL;
+	t_stack *tmp = *stack_a;
+	t_stack *new_node;
 
-	int total_elements = ft_lst_size(*stack_a);
-
-	while ((*current) && (*current)->nbr != target)
+	// Create a deep copy of stack_a
+	while (tmp)
 	{
-		(*current) = (*current)->next;
+		// Allocate memory for a new node
+		new_node = malloc(sizeof(t_stack));
+		if (!new_node)
+			return -1; // Handle memory allocation failure
+
+		// Copy the data from the original node
+		new_node->nbr = tmp->nbr;
+		new_node->next = NULL;
+
+		// Link the new node into the new list
+		if (!current)
+			current = new_node; // Set the head of the new list
+		else
+			tail->next = new_node; // Attach to the last node in the new list
+
+		tail = new_node; // Move the tail to the new node
+
+		tmp = tmp->next; // Move to the next node in stack_a
+
+		// Increment the total element count
+		total_elements++;
+	}
+
+	// Iterate through the copied stack to find the target
+	tmp = current; // Reset tmp to the head of the copied list
+	while (tmp && tmp->nbr != target)
+	{
 		count++;
+		tmp = tmp->next;
+	}
+
+	// Free the copied list to prevent memory leaks
+	while (current)
+	{
+		tmp = current;
+		current = current->next;
+		free(tmp);
 	}
 
 	// The number of reverse rotations needed is total elements minus the forward rotations
