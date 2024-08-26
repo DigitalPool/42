@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 16:51:42 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/26 16:03:38 by mac              ###   ########.fr       */
+/*   Updated: 2024/08/26 17:11:29 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ int	main(int argc, char **argv)
 		ft_sort_stack(&stack_a);
 
 	// Print the stack after sorting
-	printf("Stack after sorting:\n");
-	print_stack(stack_a);
+	// printf("Stack after sorting:\n");
+	// print_stack(stack_a);
 
 	// Free the stack memory
 	ft_free_stack(&stack_a);

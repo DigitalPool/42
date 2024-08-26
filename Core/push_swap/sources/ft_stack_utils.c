@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 18:00:34 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/25 15:22:29 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/26 17:09:40 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ int ft_second_min(t_stack *stack_a)
 		stack_a = stack_a->next;
 	}
 
-	printf("second min:\n");
-	printf ("%d\n", second_min);
+	// printf("second min:\n");
+	// printf ("%d\n", second_min);
 
 	return (second_min);
 }

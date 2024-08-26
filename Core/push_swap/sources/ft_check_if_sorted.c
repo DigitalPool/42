@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_if_sorted.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 13:52:43 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/21 16:14:54 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/26 17:09:29 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int	is_sorted(t_stack **stack)
 	}
 
 	// printf("after is_sorted:\n");
-	print_stack(*stack);
+	// print_stack(*stack);
 	return (1);
 }
