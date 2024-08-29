@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 18:19:12 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/25 21:09:42 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/29 09:59:39 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	ft_sort_stack(t_stack **stack_a);
 int		ft_min(t_stack *stack_a);
 int		ft_max(t_stack *stack_a);
 void	ft_sort(t_stack **stack_a);
+void	ft_sort_100(t_stack **stack_a);
 void	ft_sort_three(t_stack **stack_a);
 void	ft_print_error(void);
 t_stack	*ft_create_new_node(int value);
@@ -83,5 +84,22 @@ int find_next_memmean3_bottom(t_stack **stack, int mean3_stack);
 int move_count_rra_stack(t_stack **stack);
 int move_count_ra_stack(t_stack **stack);
 int ft_mean1_stack(t_stack **stack_a);
+int ft_mean2_stack(t_stack **stack_a);
 int ft_mean3_stack(t_stack **stack_a);
+int ft_mean4_stack(t_stack **stack_a);
+int ft_mean5_stack(t_stack **stack_a);
+int ft_mean6_stack(t_stack **stack_a);
+int ft_mean7_stack(t_stack **stack_a);
+int ft_mean9_stack(t_stack **stack_a);
+int ft_mean10_stack(t_stack **stack_a);
+int ft_mean11_stack(t_stack **stack_a);
+int ft_mean12_stack(t_stack **stack_a);
+int ft_mean13_stack(t_stack **stack_a);
+int ft_mean14_stack(t_stack **stack_a);
+int ft_mean15_stack(t_stack **stack_a);
+
+
+void push_tob_rot(t_stack **stack_a, t_stack **stack_b, int mean_value);
+void push_tob(t_stack **stack_a, t_stack **stack_b, int mean_value);
+void pusha_tob(t_stack **stack_a, t_stack **stack_b, int mean_value);
 #endif

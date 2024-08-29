@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_operations.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 18:14:28 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/17 13:24:22 by ashobajo         ###   ########.fr       */
+/*   Updated: 2024/08/29 08:52:52 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_rb(t_stack **b, int j)
 	tmp->next = NULL;
 
 	if (j == 0)
-		write(1, "ra\n", 3);
+		write(1, "rb\n", 3);
 
 }
 

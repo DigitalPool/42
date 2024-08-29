@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ashobajo <ashobajo@student.42.fr>          +#+  +:+       +#+         #
+#    By: mac <mac@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/19 18:34:58 by ashobajo          #+#    #+#              #
-#    Updated: 2024/08/25 15:04:23 by ashobajo         ###   ########.fr        #
+#    Updated: 2024/08/29 08:13:19 by mac              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRCS =	sources/ft_add_args_to_stack.c \
 			sources/sorting_utils_ab.c \
 			sources/sorting_utils_ba.c \
 			sources/swap_operations.c\
+			sources/ft_sort_100.c\
 
 LIBFT = libft/libft.a
 
