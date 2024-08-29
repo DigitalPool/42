@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 18:19:12 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/29 09:59:39 by mac              ###   ########.fr       */
+/*   Updated: 2024/08/29 22:52:29 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,15 @@ int ft_mean15_stack(t_stack **stack_a);
 void push_tob_rot(t_stack **stack_a, t_stack **stack_b, int mean_value);
 void push_tob(t_stack **stack_a, t_stack **stack_b, int mean_value);
 void pusha_tob(t_stack **stack_a, t_stack **stack_b, int mean_value);
+
+
+int pushb_bot2(t_stack **stack_a, t_stack **stack_b);
+int pushb_bot(t_stack **stack_a, t_stack **stack_b);
+int pushb_top2(t_stack **stack_a, t_stack **stack_b);
+int pushb_top(t_stack **stack_a, t_stack **stack_b);
+
+// int pushb_bot2_tmp(t_stack **stack_a, t_stack **stack_b);
+int pushb_bot_tmp(t_stack **stack_a, t_stack **stack_b);
+int pushb_top2_tmp(t_stack **stack_a, t_stack **stack_b);
+int pushb_top_tmp(t_stack **stack_a, t_stack **stack_b);
 #endif

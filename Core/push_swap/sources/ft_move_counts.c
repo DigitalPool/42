@@ -6,21 +6,11 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 20:37:30 by ashobajo          #+#    #+#             */
-/*   Updated: 2024/08/26 16:10:22 by mac              ###   ########.fr       */
+/*   Updated: 2024/08/29 11:19:07 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-// int move_count_ra (t_stack **stack_a)
-// {
-// 	int move_count = 0;
-
-// 	if ((*stack_a))
-// 		move_count = 0;
-// 	else if (ft_lst_last(stack_a))
-// 		move_count = 1;
-// }
 
 int move_count_ra(t_stack **stack_a, int target)
 {

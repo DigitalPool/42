@@ -6,7 +6,7 @@
 #    By: mac <mac@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/19 18:34:58 by ashobajo          #+#    #+#              #
-#    Updated: 2024/08/29 08:13:19 by mac              ###   ########.fr        #
+#    Updated: 2024/08/29 19:30:39 by mac              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,8 @@ SRCS =	sources/ft_add_args_to_stack.c \
 			sources/sorting_utils_ba.c \
 			sources/swap_operations.c\
 			sources/ft_sort_100.c\
+			sources/ft_push_tob_on.c\
+			sources/pushes_tmp.c\
 
 LIBFT = libft/libft.a
 
